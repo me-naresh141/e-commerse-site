@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <!-- font awesome -->
+  <script src="https://kit.fontawesome.com/d08fba0fb1.js" crossorigin="anonymous"></script>
+  <title>e-commerse</title>
+</head>
+
+<body>
+  <header class="bg-color">
+    <nav class="container flex justify-between font-size-2rem pading-1tb">
+      <ul class="">
+        <a class="color-blue font-weight" href="#">Shopping-cart</a>
+      </ul>
+      <ul class="flex">
+        <li>
+          <a class="color-blue" title="Sing in " href="/users/new"><i class="fa-solid fa-user"></i></a>
+        </li>
+        <li>
+          <a class="margin-left-1 color-blue" href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+        </li>
+        <li title="Product" class="product-number"><span>0</span></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- main -->
+  <section class="bg-color-light">
+    <div class="container height-100vh flex  ">
+      <!-- image-div -->
+      <div
+        class="product-div width-100 height-100 border flex justify-around  flex-wrap-yes gap overflow-scroll scrollbar-none">
+
+        <%product.reverse().forEach((item)=>{%>
+          <div class=" image-div width-20 height-50 border">
+            <figure class="height-60 border-red bg-color-white">
+              <img src="/images/<%=item.image%>" alt="img" />
+            </figure>
+            <div>
+              <h2>
+                <%=item.name%>
+              </h2>
+              <div>
+                <span>&#8377</span>
+                <span>
+                  <%=item.price%> <del> (&#8377 <%=item.price+100%>)</del>
+                </span> <br>
+                <span><Strong>Available:</Strong>
+                  <%=item.quantity%>
+                </span>
+              </div>
+              <a href="/users/new"> <button>Add to cart</button></a>
+
+            </div>
+          </div>
+          <%})%>
+      </div>
+    </div>
+  </section>
+  <script src="/javascripts/index.js"></script>
+</body>
+
+</html>

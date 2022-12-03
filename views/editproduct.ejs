@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/d08fba0fb1.js" crossorigin="anonymous"></script>
+    <title>e-commerse</title>
+</head>
+
+<body>
+    <header class="bg-color">
+        <nav class="container flex justify-between font-size-2rem pading-1tb">
+            <ul class="">
+                <a class="color-blue font-weight" href="/users">Shopping-cart</a>
+            </ul>
+            <ul class="flex">
+                <li>
+                    <a class="color-blue" title="logout " href="/users/logout"><i
+                            class="fa-solid fa-user-slash"></i></a>
+                </li>
+                <li>
+                    <a class="margin-left-1 color-blue" href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                </li>
+                <li title="Product" class="product-number"><span>0</span></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- main -->
+    <section class="bg-color-light">
+        <div class="container height-100vh flex justify-around align-center">
+            <!-- admin form -->
+            <div class="new-product-form width-40 border">
+                <form action="/users/admin" method="post" enctype="multipart/form-data" class="form pading-1rem">
+                    <h1 class="text-center font-size-2rem font-weight">Edit Product</h1>
+                    <label for="">Product name</label>
+                    <input type="text" name="name" id="" value="<%=product.name%>" />
+                    <label for="">quantity</label>
+                    <input type="number" name="quantity" id="" value="<%=product.quantity%>" />
+                    <label for="">price</label>
+                    <input type="number" name="price" id="" value="<%=product.price%>" />
+                    <label for="">image</label>
+                    <input type="file" name="image" id="" value="<%=product.image%>" />
+                    <button type="submit" class="btn btn-submit margin-0-auto">
+                        Submit
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script src="/javascripts/index.js"></script>
+</body>
+
+</html>

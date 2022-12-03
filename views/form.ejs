@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <!-- font awesome -->
+  <script src="https://kit.fontawesome.com/d08fba0fb1.js" crossorigin="anonymous"></script>
+  <title>e-commerse</title>
+</head>
+
+<body>
+  <header class="bg-color">
+    <nav class="container flex justify-between font-size-2rem pading-1tb">
+      <ul class="">
+        <a class="color-blue font-weight" href="/">Shopping-cart</a>
+      </ul>
+      <ul class="flex">
+        <li>
+          <a class="color-blue" title="Sing in " href="/users"><i class="fa-solid fa-user"></i></a>
+        </li>
+        <li>
+          <a class="margin-left-1 color-blue" href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+        </li>
+        <li title="Product" class="product-number"><span>0</span></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- main -->
+  <section class="bg-color-light">
+    <div class="container height-100vh flex justify-center align-center">
+      <div class="width-40 border-white pading-1rem">
+        <!-- sign-in-up button -->
+        <div class="full-width flex justify-between margin-bottom-1rem">
+          <div class="width-50 text-center border-white font-size-2rem">
+            <h1 class="sign-in bg-color font-size-2rem">Sign in</h1>
+          </div>
+          <div class="width-50 text-center border-white font-size-2rem">
+            <h2 class="sign-up font-size-2rem">Sign up</h2>
+          </div>
+        </div>
+        <!-- form -->
+        <!-- sign up foem -->
+        <div class="sign-up-div">
+          <form action="/users" method="post" class="form">
+            <label for="#">Name</label>
+            <input type="text" name="name" id="" />
+            <label for="#">Email</label>
+            <input type="email" name="email" id="" />
+            <label for="#">Password</label>
+            <input type="password" name="password" id="" />
+            <label for="#">Mobile Number</label>
+            <input type="number" name="mobile" id="" />
+            <label for="#">Admin</label>
+            <div class="border-white flex justify-around bg-color-white margin-bottom-1rem">
+              <div>
+                <input type="radio" id="false" name="admin" value="false" />
+                <label for="false">False</label><br />
+              </div>
+              <div>
+                <input type="radio" id="true" name="admin" value="true" />
+                <label for="true">True</label><br />
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-submit margin-0-auto">
+              Sign up
+            </button>
+          </form>
+        </div>
+        <!-- sign in form -->
+        <div class="sign-in-div">
+          <form action="/users/sign-in" method="post" class="form">
+            <p class="color-red">
+              <%=error%>
+            </p>
+            <label for="#">Email</label>
+            <input type="text" name="email" id="" placeholder="Email" />
+            <label for="#">password</label>
+            <input type="password" name="password" id="" placeholder="password" />
+            <button type="submit" class="btn btn-submit margin-0-auto">
+              Sign in
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script src="/javascripts/index.js"></script>
+</body>
+
+</html>

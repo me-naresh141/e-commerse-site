@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+
+  <!-- font awesome -->
+  <script src="https://kit.fontawesome.com/d08fba0fb1.js" crossorigin="anonymous"></script>
+  <title>e-commerse</title>
+</head>
+
+<body>
+  <header class="bg-color">
+    <nav class="container flex justify-between font-size-2rem pading-1tb">
+      <ul class="">
+        <a class="color-blue font-weight" href="/users">Shopping-cart</a>
+      </ul>
+      <ul class="flex">
+        <li>
+          <a class="color-blue" title="logout " href="/users/logout"><i class="fa-solid fa-user-slash"></i></a>
+        </li>
+        <li>
+          <a class="margin-left-1 userCart color-blue" href="/users/cart"><i class="fa-solid fa-cart-shopping"></i></a>
+        </li>
+        <li title="Product" class="product-number"><span>
+            <%=cartItem.productId.length%>
+          </span></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- main -->
+
+
+  <section class="bg-color-light  flex  overflow-scroll scrollbar-none">
+    <div class="container height-100vh flex  ">
+      <!-- image-div -->
+      <div
+        class="product-div width-100 height-100  flex justify-around  flex-wrap-yes gap overflow-scroll scrollbar-none">
+
+        <%product.reverse().forEach((item)=>{%>
+          <div class="image-div width-20 height-50 box-shadow  bg-color-lw">
+            <figure class="height-60  bg-color-white position-relative">
+              <img src="/images/<%=item.image%>" alt="img" />
+              <div class="like-div">
+                <a href="#"><i class="fa-regular fa-heart"></i></a>
+              </div>
+            </figure>
+            <div class="pading-1rl bg-color-lw">
+              <h2 class="text-center  font-weight text-captilize ">
+                <%=item.name%>
+              </h2>
+              <div class="margin-p5-tb">
+                <span>&#8377</span>
+                <span>
+                  <%=item.price%> <del> (&#8377 <%=item.price+100%>)</del>
+                </span> <br>
+              </div>
+              <div class="flex justify-between">
+                <span><Strong>Available:</Strong>
+                  <%=item.quantity%>
+                </span>
+
+                <a class="font-size-2rem font-weight" href="/users/<%=item.id%>/addcart"><i
+                    class="fa-solid fa-cart-plus"></i></a>
+              </div>
+            </div>
+          </div>
+          <%})%>
+      </div>
+    </div>
+    <!-- cart div -->
+
+    <div
+      class=" container cart-div  width-30 height-100vh border-red   overflow-scroll scrollbar-none pading-1rem  position-relative bg-color-black">
+
+      <div class="cancelBtnDiv bg-color-lw">
+        <span class="text-end width100">
+          <a href="#" class="cancelBtn"><i class="fa-sharp fa-solid fa-xmark"></i> </a>
+        </span>
+        <span>Total Item:<%=cartItem.productId.length%></span><br>
+        <span>Total price:</span>
+      </div>
+      <%cartItem.productId.reverse().forEach((item)=>{%>
+        <div class=" width-70 border text-center margin-bottom-1rem ">
+          <figure class="height-10rem  bg-color-white">
+            <img src="/images/<%=item.image%>" alt="img" />
+          </figure>
+          <div class="bg-color-lw">
+            <h2 class="font-size-1-5rem font-weight ">
+              <%=item.name%>
+            </h2>
+            <div>
+              <span>&#8377</span>
+              <span>
+                <%=item.price%> <del> (&#8377 <%=item.price+100%>)</del>
+              </span> <br>
+              <!-- <span><Strong>Available:</Strong>  <%=item.quantity%></span> -->
+            </div>
+
+
+            <a href="/users/<%=item._id%>/delete"> <button>remove</button></a>
+
+          </div>
+        </div>
+        <%})%>
+    </div>
+  </section>
+  <script src="/javascripts/cart.js"></script>
+
+</body>
+
+</html>
